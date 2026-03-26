@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import EmployeeDetails from './Components/EmployeeDetails';
 import DutyDetails from './Components/DutyDetails';
 import DurationDetails from './Components/DurationDetails';
@@ -133,19 +133,47 @@ export default function Home() {
   
   };
 
+  const handleLogout = () => {
+    // 1. Remove the user from storage
+    localStorage.removeItem('currentUser');
+    
+    // 2. Redirect to login page
+    router.push('/login');
+  };
+
+  useLayoutEffect(() => {
+    // 1. Check if a user is logged in
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (!user) {
+      // If no user, force them to login
+      router.push('/login');
+    } else {
+      // 2. AUTO-FILL the form data
+      setFormData(prev => ({
+        ...prev,
+        employeeName: user.name,
+        employeeId: user.empId,
+        department: user.dept,
+        designation: user.desig,
+        contactNumber: user.phone
+      }));
+    }
+  }, []);
+
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-2 sm:px-2">
-      <div className="max-w-2xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden border border-slate-200">
+    <div className="min-h-screen bg-gradient-to-br from-[#C5BAC4] via-[#7E919F] to-[#57707A] py-12 px-2 sm:px-2 flex items-center justify-center flex-wrap">
+      <div className="max-w-6xl mx-auto bg-gradient-to-br from-[#C5BAC4] via-[#7E919F] to-[#57707A] shadow-2xl rounded-lg overflow-hidden ">
 
         {/* Header Decor */}
-        <div className="h-0.5 bg-blue-600" />
+        <div className="h-0.5 bg-red-600" />
 
         <div className="p-8">
           <header className="text-center mb-10">
             <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
               OFFICIAL DUTY FORM
             </h1>
-            <p className="text-slate-500 mt-2">Field Visit & Permission Request</p>
+            <p className="text-slate-900 mt-2">Field Visit & Permission Request</p>
           </header>
 
           <form onSubmit={handleSubmit} className="space-y-8">
@@ -186,6 +214,21 @@ export default function Home() {
 
             <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-4">
 
+              <button
+      onClick={handleLogout}
+      className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-all border border-red-100 active:scale-95"
+    >
+      <svg 
+        className="w-4 h-4" 
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+      </svg>
+      Logout
+    </button>
+
 <button
   type="button"
   onClick={() => setFormData(initialFormData)}
@@ -193,6 +236,7 @@ export default function Home() {
 >
   Clear
 </button>
+
 
               <button
                 type="submit"
@@ -202,7 +246,7 @@ export default function Home() {
                     ? 'bg-blue-300 cursor-not-allowed'
                     : 'bg-blue-600 hover:bg-blue-700 active:transform active:scale-95 shadow-md'}`}
               >
-                {isSubmitting ? 'Processing...' : 'Submit Request'}
+                {isSubmitting ? 'Processing...' : 'Submit'}
               </button>
             </div>
 

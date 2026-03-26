@@ -63,7 +63,7 @@ export default function Declaration({ formData, handleChange }) {
           type="checkbox" 
           id="agree" 
           required 
-          className="mt-1 w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
+          // className="mt-1 w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500"
         />
         <label htmlFor="agree" className="text-xs text-slate-500 cursor-pointer">
           I understand that this digital signature is legally binding and equivalent to a handwritten signature.
