@@ -51,7 +51,7 @@ export default function Register() {
     const inputStyle = "w-full px-4 py-2.5 bg-white border border-slate-300 rounded-xl text-slate-800 focus:ring-2 focus:ring-blue-500/20 focus:border-blue-600 outline-none transition-all";
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#C5BAC4] via-[#7E919F] to-[#57707A] py-12 px-4">
+        <div className="min-h-screen flex items-center justify-center bg-slate-100 py-12 px-4">
             <div className="max-w-xl w-full">
                 <div className="text-center mb-8">
                     <h2 className="text-3xl font-black text-slate-900 tracking-tight">Create Account</h2>

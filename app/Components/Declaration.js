@@ -10,13 +10,13 @@ export default function Declaration({ formData, handleChange }) {
       {/* Header */}
       <div className="border-b border-slate-200 pb-3">
         <h2 className="text-xl font-extrabold text-slate-800 flex items-center gap-2">
-          <span className="w-2 h-6 bg-blue-600 rounded-full"></span>
+          <span className="w-1 h-6 bg-red-600 rounded-full"></span>
           6. Employee Declaration
         </h2>
       </div>
 
       {/* Legal Text Box */}
-      <div className="bg-white border-l-2  p-4 rounded-r-lg shadow-sm italic text-slate-600 text-sm leading-relaxed">
+      <div className="bg-white border-l-2 border-red-600 p-4 rounded-r-lg shadow-sm italic text-slate-600 text-sm leading-relaxed">
         "I hereby confirm that the information provided above is true and accurate to the best of my knowledge. I agree to adhere to all company policies and safety protocols during this official duty. I understand that the company shall not be held liable for any unauthorized acts performed outside my official capacity."
       </div>
 

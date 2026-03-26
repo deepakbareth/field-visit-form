@@ -34,7 +34,7 @@ export default function Login() {
   const labelStyle = "block text-xs font-bold uppercase text-slate-500 mb-1.5 ml-1";
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#C5BAC4] via-[#7E919F] to-[#57707A] py-12 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-slate-100 py-12 px-4">
       <div className="max-w-md w-full">
         
         <div className="text-center mb-8">

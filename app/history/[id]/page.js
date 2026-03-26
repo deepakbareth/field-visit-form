@@ -11,7 +11,7 @@ export default async function TripDetails({ params }) {
         <div className="text-center p-10 bg-white rounded-3xl shadow-sm border border-slate-200 w-full max-w-sm">
           <p className="text-xl font-bold text-slate-800">Trip not found</p>
           <p className="text-sm text-slate-500 mt-2 mb-6">This record may have been deleted.</p>
-          <Link href="/employees" className="bg-blue-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-blue-700 transition-all block w-full">
+          <Link href="/history" className="bg-blue-600 text-white font-bold py-3 px-6 rounded-xl hover:bg-blue-700 transition-all block w-full">
             Back to History
           </Link>
         </div>
@@ -23,7 +23,7 @@ export default async function TripDetails({ params }) {
   const SectionHeader = ({ title }) => (
     <div className="flex items-center gap-4 mb-4 sm:mb-6 mt-8 sm:mt-10">
       <h2 className="text-base sm:text-lg font-black text-slate-800 tracking-tight whitespace-nowrap">{title}</h2>
-      <div className="flex-1 h-px bg-slate-200"></div>
+      <div className="flex-1 h-px bg-red-500"></div>
     </div>
   );
 
@@ -36,11 +36,11 @@ export default async function TripDetails({ params }) {
   // -------------------------------------------
 
   return (
-    <div className="min-h-screen  bg-gradient-to-br from-[#C5BAC4] via-[#7E919F] to-[#57707A] py-6 sm:py-12 px-3 sm:px-6 flex flex-col items-center">
+    <div className="min-h-screen  bg-slate-50 py-6 sm:py-12 px-3 sm:px-6 flex flex-col items-center">
       <div className="max-w-6xl w-full"> 
         
         {/* Mobile-friendly Back Button */}
-        <Link href="/employees" className="inline-flex items-center gap-2 text-slate-800 font-bold hover:text-blue-600 transition-colors mb-4 sm:mb-6 py-2 pr-4">
+        <Link href="/history" className="inline-flex items-center gap-2 text-red-500 font-bold hover:text-blue-600 transition-colors mb-4 sm:mb-6 py-2 pr-4">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
           Back to History
         </Link>
@@ -49,8 +49,8 @@ export default async function TripDetails({ params }) {
         <div className="bg-white rounded-3xl sm:rounded-[2rem] shadow-2xl shadow-slate-200/50  overflow-hidden">
           
           {/* Top Header - Responsive layout */}
-          <div className="bg-[#134E4A] p-6 sm:p-10 text-white relative overflow-hidden">
-            <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+          <div className="bg-black p-6 sm:p-10 text-white relative overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-40 h-40 bg-red-500 rounded-full blur-3xl opacity-20"></div>
             
             <div className="flex flex-col md:flex-row md:justify-between md:items-start relative z-10 gap-5">
               <div className="order-2 md:order-1">

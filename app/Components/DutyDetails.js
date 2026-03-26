@@ -10,7 +10,7 @@ export default function DutyDetails({ formData, handleChange }) {
       {/* Section Header */}
       <div className="border-b border-slate-100 pb-4">
         <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-          <span className="w-2 h-6 bg-indigo-500 rounded-full"></span>
+          <span className="w-1 h-6 bg-red-500 rounded-full"></span>
           2. Duty & Visit Details
         </h2>
       </div>

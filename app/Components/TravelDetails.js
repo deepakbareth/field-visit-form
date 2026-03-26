@@ -19,7 +19,7 @@ export default function TravelDetails({ formData, handleChange }) {
             {/* Header */}
             <div className="border-b border-slate-100 pb-4">
                 <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-                    <span className="w-2 h-6 bg-blue-600 rounded-full"></span>
+                    <span className="w-1 h-6 bg-red-600 rounded-full"></span>
                     4. Travel & Stay Details
                 </h2>
             </div>

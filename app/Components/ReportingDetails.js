@@ -10,7 +10,7 @@ export default function ReportingDetails({ formData, handleChange }) {
       {/* Section Header */}
       <div className="border-b border-slate-100 pb-4">
         <h2 className="text-sm sm:text-xl md:text-2xl font-extrabold text-slate-800 flex items-center gap-2">
-     <span className="w-1.5 sm:w-2 h-5 sm:h-6 md:h-7 bg-blue-600 rounded-full"></span>
+     <span className="w-1 sm:w-1 h-5 sm:h-6 md:h-7 bg-red-600 rounded-full"></span>
           5. Reporting & Responsibility
         </h2>
       </div>

@@ -11,12 +11,18 @@ import ApprovalSection from './Components/ApprovalSection';
 import Belongings from './Components/Belongings';
 import { initialFormData } from './utils/formInitialData';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import ClearButton from './Components/ClearButton';
+import { Logout } from './Components/LogoutButton';
+import { ViewHistory } from './Components/ViewHistory';
+import { SubmitButton } from './Components/SubmiteButton';
 
 
 
 export default function Home() {
   const router = useRouter();
-  const [formData, setFormData] = useState({...initialFormData,
+  const [formData, setFormData] = useState({
+    ...initialFormData,
     // 1. Employee Details
     employeeName: '',
     employeeId: '',
@@ -122,21 +128,21 @@ export default function Home() {
     // Simulating an API call
     console.log('Submitting Data:', formData);
     await new Promise(resolve => setTimeout(resolve, 1000));
-  // 🔥 Store data
-  localStorage.setItem("formData", JSON.stringify(formData));
+    // 🔥 Store data
+    localStorage.setItem("formData", JSON.stringify(formData));
 
-    setIsSubmitting(false); 
-  // setFormData(initialFormData);
+    setIsSubmitting(false);
+    // setFormData(initialFormData);
     alert('Form Submitted Successfully!');
-      // 🔥 Store data
-  router.push("/preview");
-  
+    // 🔥 Store data
+    router.push("/preview");
+
   };
 
   const handleLogout = () => {
     // 1. Remove the user from storage
     localStorage.removeItem('currentUser');
-    
+
     // 2. Redirect to login page
     router.push('/login');
   };
@@ -162,8 +168,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#C5BAC4] via-[#7E919F] to-[#57707A] py-12 px-2 sm:px-2 flex items-center justify-center flex-wrap">
-      <div className="max-w-6xl mx-auto bg-gradient-to-br from-[#C5BAC4] via-[#7E919F] to-[#57707A] shadow-2xl rounded-lg overflow-hidden ">
+    <div className="min-h-screen bg-slate-100 py-12 px-2 sm:px-2 flex items-center justify-center flex-wrap">
+      <div className="max-w-6xl mx-auto bg-slate-100 shadow-2xl rounded-lg overflow-hidden ">
 
         {/* Header Decor */}
         <div className="h-0.5 bg-red-600" />
@@ -212,44 +218,26 @@ export default function Home() {
               handleBelongingsChange={handleBelongingsChange}
             />
 
-            <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-4">
+            <hr className="border-t border-slate-300" />
+            
+            {/* Bottom */}
+            <div className="pt-6 border-t border-slate-300 flex justify-between items-end gap-2">
 
-              <button
-      onClick={handleLogout}
-      className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-all border border-red-100 active:scale-95"
-    >
-      <svg 
-        className="w-4 h-4" 
-        fill="none" 
-        stroke="currentColor" 
-        viewBox="0 0 24 24"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-      </svg>
-      Logout
-    </button>
+              {/* Left Side: History & Logout (Stacked Up/Down) */}
+              <div className="flex flex-col gap-2">
+                <ViewHistory />
+                <Logout handleLogout={handleLogout} />
+              </div>
 
-<button
-  type="button"
-  onClick={() => setFormData(initialFormData)}
-  className="bg-gray-200 hover:bg-gray-300 text-black px-4 py-2 rounded-lg"
->
-  Clear
-</button>
+              {/* Right Side: Clear & Submit (Stacked Up/Down to save horizontal space) */}
+              <div className=" flex flex-col sm:flex-col gap-2">
+                <div className="">
+                  <ClearButton onClear={() => setFormData(initialFormData)} />
+                </div>
 
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className={`px-6 py-2.5 rounded-md font-bold text-white transition-all
-                  ${isSubmitting
-                    ? 'bg-blue-300 cursor-not-allowed'
-                    : 'bg-blue-600 hover:bg-blue-700 active:transform active:scale-95 shadow-md'}`}
-              >
-                {isSubmitting ? 'Processing...' : 'Submit'}
-              </button>
+               <SubmitButton isSubmitting={isSubmitting} />
+              </div>
             </div>
-
           </form>
         </div>
       </div>

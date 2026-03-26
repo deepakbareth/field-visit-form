@@ -9,7 +9,7 @@ export default function EmployeeDetails({ formData, handleChange }) {
         <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-6">
             <div className="border-b border-slate-100 pb-4">
                 <h2 className="text-xl font-bold text-slate-800 flex items-center gap-2">
-                    <span className="w-2 h-6 bg-blue-600 rounded-full"></span>
+                    <span className="w-1 h-6 bg-red-600 rounded-full"></span>
                     1. Employee Details
                 </h2>
             </div>
