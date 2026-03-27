@@ -111,7 +111,7 @@ export const deepakTrips = [
     designation: 'Senior Field Reporter',
     contactNumber: '+91 98765 43210',
 
-    purpose: 'Monsoon Session Parliament Coverage',
+    purpose: 'Monsoon Session Parliament Coverage ',
     dutyType: 'NCR',
     location: 'New Delhi',
     client: 'National News Desk',

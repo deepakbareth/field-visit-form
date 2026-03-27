@@ -16,6 +16,8 @@ import ClearButton from './Components/ClearButton';
 import { Logout } from './Components/LogoutButton';
 import { ViewHistory } from './Components/ViewHistory';
 import { SubmitButton } from './Components/SubmiteButton';
+import Header from './Components/Header';
+import NMF_logo from '././../public/NMF_logo.png';
 
 
 
@@ -168,15 +170,17 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-100 py-12 px-2 sm:px-2 flex items-center justify-center flex-wrap">
+    <div className="min-h-screen bg-slate-100 py-5 px-2 sm:px-2 flex items-center justify-center flex-wrap">
       <div className="max-w-6xl mx-auto bg-slate-100 shadow-2xl rounded-lg overflow-hidden ">
 
         {/* Header Decor */}
         <div className="h-0.5 bg-red-600" />
 
-        <div className="p-8">
+        <div className="p-2 py-8 md:p-8  md:px-15 ">
           <header className="text-center mb-10">
-            <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
+<Header />
+
+            <h1 className="text-2xl font-bold text-slate-800 tracking-tight">
               OFFICIAL DUTY FORM
             </h1>
             <p className="text-slate-900 mt-2">Field Visit & Permission Request</p>
@@ -219,7 +223,7 @@ export default function Home() {
             />
 
             <hr className="border-t border-slate-300" />
-            
+
             {/* Bottom */}
             <div className="pt-6 border-t border-slate-300 flex justify-between items-end gap-2">
 
@@ -235,7 +239,7 @@ export default function Home() {
                   <ClearButton onClear={() => setFormData(initialFormData)} />
                 </div>
 
-               <SubmitButton isSubmitting={isSubmitting} />
+                <SubmitButton isSubmitting={isSubmitting} />
               </div>
             </div>
           </form>
