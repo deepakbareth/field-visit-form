@@ -18,6 +18,8 @@ import { ViewHistory } from './Components/ViewHistory';
 import { SubmitButton } from './Components/SubmiteButton';
 import Header from './Components/Header';
 import NMF_logo from '././../public/NMF_logo.png';
+import HomePageHeader from './Components/HomePageHeader';
+import { ProfileButton } from './Components/ProfileButton';
 
 
 
@@ -179,7 +181,7 @@ export default function Home() {
         <div className="p-2 py-8 md:p-8  md:px-15 ">
           <header className="text-center mb-10">
 <Header />
-
+{/* <HomePageHeader />   */}
             <h1 className="text-2xl font-bold text-slate-800 tracking-tight">
               OFFICIAL DUTY FORM
             </h1>
@@ -230,7 +232,8 @@ export default function Home() {
               {/* Left Side: History & Logout (Stacked Up/Down) */}
               <div className="flex flex-col gap-2">
                 <ViewHistory />
-                <Logout handleLogout={handleLogout} />
+                {/* <Logout handleLogout={handleLogout} /> */}
+                <ProfileButton/>
               </div>
 
               {/* Right Side: Clear & Submit (Stacked Up/Down to save horizontal space) */}

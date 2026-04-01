@@ -55,7 +55,7 @@ export default function HistoryPage() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] py-8 px-4 md:py-12">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
 
         {/* Header Section */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10">
